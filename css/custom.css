@@ -1,0 +1,23 @@
+body {
+    background-color: #EFEFEF;
+}
+
+.material-icons.fs-10 {
+    font-size: 4rem;
+}
+
+.form-contact {
+    height: 90vh; 
+}
+
+.card-course {
+    transform: scale(1);
+    transition: 0.5s ease-in-out;
+}
+
+.card-course:hover {
+    background-color: #A0629C;
+    color: white;
+    transform: scale(0.9);
+    transition: 0.5s ease-in-out;
+}
