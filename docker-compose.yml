@@ -35,3 +35,4 @@ networks:
 volumes:
   setup-data:
     driver: local
+
