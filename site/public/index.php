@@ -2,8 +2,9 @@
 
 $url = $_SERVER['REQUEST_URI'];
 
-if ($url === '/admin') {
-    echo "Pagina de admin";
+if (str_contains($url, '/admin')) {
+    include '../app/routes.php';
+
     exit;
 }
 
