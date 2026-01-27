@@ -16,6 +16,17 @@ class UsuarioController extends AbstractController
 
     public function list(): void
     {
-        $this->view('usuarios/list');
+        $usuarios = [
+            [
+                'id' => 1,
+                'nome' => 'Chiquim',
+                'email' => 'chiquim@email.com',
+                'endereco' => 'Rua das Taquaras, 123 - Alameda dos Anjos',
+            ],
+        ];
+
+        $this->view('usuarios/list', [
+            'usuarios' => $usuarios,
+        ]);
     }
 }

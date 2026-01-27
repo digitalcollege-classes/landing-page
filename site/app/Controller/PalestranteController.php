@@ -16,6 +16,18 @@ class PalestranteController extends AbstractController
 
     public function list(): void
     {
-        $this->view('palestrantes/list');
+
+        $palestrantes = [
+            [
+                'id' => 1,
+                'nome' => 'Palestrinnha',
+                'email' => 'chiquim@email.com',
+                'endereco' => 'Rua das Taquaras, 123 - Alameda dos Anjos',
+            ],
+        ];
+
+        $this->view('palestrantes/list', [
+            'palestrantes' => $palestrantes,
+        ]);
     }
 }
