@@ -6,7 +6,12 @@ class PalestranteController extends AbstractController
 {
     public function add(): void
     {
-        echo "Novo palestrante";
+        $this->view('palestrantes/add');
+    }
+
+    public function edit(): void
+    {
+        $this->view('palestrantes/edit');
     }
 
     public function list(): void

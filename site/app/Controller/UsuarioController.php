@@ -9,6 +9,11 @@ class UsuarioController extends AbstractController
         $this->view('usuarios/add');
     }
 
+    public function edit(): void
+    {
+        $this->view('usuarios/edit');
+    }
+
     public function list(): void
     {
         $this->view('usuarios/list');

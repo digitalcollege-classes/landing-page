@@ -1,76 +1,54 @@
-<h1>Listar usuarios</h1>
-
 <hr>
 
-<table>
-    <thead>
-    <tr>
-        <th>Titulo</th>
-        <th>Titulo</th>
-        <th>Titulo</th>
-        <th>Titulo</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    </tbody>
-</table>
+<div class="container p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Listar Usuários</h1>
+        <a href="/admin/usuarios/cadastrar" class="btn btn-primary">+ Novo Usuário</a>
+    </div>
+    <table class="table table-secondary table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Email</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Maik</td>
+                <td>Barra</td>
+                <td>maik.dev01@gmail.com</td>
+                <td>
+                    <a href="/admin/usuarios/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="/admin/usuarios/excluir?id=1" class="btn btn-sm btn-danger"
+                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Vinicio</td>
+                <td>Parangaba</td>
+                <td>vinincindev@gmail.com</td>
+                <td>
+                    <a href="/admin/usuarios/editar?id=2" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="/admin/usuarios/excluir?id=2" class="btn btn-sm btn-danger"
+                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Cristiano</td>
+                <td>Bezerra</td>
+                <td>criftiano@al.ce.gov.br</td>
+                <td>
+                    <a href="/admin/usuarios/editar?id=3" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="/admin/usuarios/excluir?id=3" class="btn btn-sm btn-danger"
+                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
