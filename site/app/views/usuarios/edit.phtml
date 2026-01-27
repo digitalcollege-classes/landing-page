@@ -1,1 +1,35 @@
-<h1>Editar usuarios</h1>
+<h2>Editar Usuario</h2>
+<hr>
+
+<?php if (!empty($erros)): ?>
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            <?php foreach ($erros as $erro): ?>
+                <li><?= htmlspecialchars($erro) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
+<form action="/admin/usuarios/editar/<?= htmlspecialchars(
+    (string) $usuario["id"],
+) ?>" method="post">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" value="<?= htmlspecialchars(
+            $usuario["nome"],
+        ) ?>" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="<?= htmlspecialchars(
+            $usuario["email"],
+        ) ?>" required>
+    </div>
+    <div class="mb-3">
+        <label for="senha" class="form-label">Senha <small class="text-muted">(deixe em branco para manter a atual)</small></label>
+        <input type="password" class="form-control" id="senha" name="senha">
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="/admin/usuarios/listar" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,32 @@
+<h2>Excluir Palestrante</h2>
+<hr>
+
+<div class="alert alert-warning">
+    <strong>Atencao!</strong> Tem certeza que deseja excluir o palestrante <strong><?= htmlspecialchars(
+        $palestrante["nome"],
+    ) ?></strong>?
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Nome:</strong> <?= htmlspecialchars(
+            $palestrante["nome"],
+        ) ?></p>
+        <p><strong>Email:</strong> <?= htmlspecialchars(
+            $palestrante["email"],
+        ) ?></p>
+        <p><strong>Tema:</strong> <?= htmlspecialchars(
+            $palestrante["tema"],
+        ) ?></p>
+        <p><strong>Bio:</strong> <?= htmlspecialchars(
+            $palestrante["bio"] ?? "-",
+        ) ?></p>
+    </div>
+</div>
+
+<form action="/admin/palestrantes/excluir/<?= htmlspecialchars(
+    (string) $palestrante["id"],
+) ?>" method="post" class="mt-3">
+    <button type="submit" class="btn btn-danger">Confirmar Exclusao</button>
+    <a href="/admin/palestrantes/listar" class="btn btn-secondary">Cancelar</a>
+</form>

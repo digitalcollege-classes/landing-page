@@ -1,13 +1,16 @@
 <?php
 
-$url = $_SERVER['REQUEST_URI'];
+$url = $_SERVER["REQUEST_URI"];
 
-if (str_contains($url, '/admin')) {
-    include '../app/views/menu.phtml';
+if (str_contains($url, "/admin")) {
+    ob_start();
+    include "../app/routes.php";
+    $content = ob_get_clean();
 
-    include '../app/routes.php';
-
-    exit;
+    include "../app/views/menu.phtml";
+    echo $content;
+    include "../app/views/footer-admin.phtml";
+    exit();
 }
 
-require_once '../views/base.php';
+require_once "../views/base.php";

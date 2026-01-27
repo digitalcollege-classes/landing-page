@@ -1,10 +1,41 @@
-<h1>Cadastrar usuario</h1>
-
+<h2>Cadastrar Palestrante</h2>
 <hr>
 
-<form action="">
+<?php if (!empty($erros)): ?>
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            <?php foreach ($erros as $erro): ?>
+                <li><?= htmlspecialchars($erro) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
 
-    <input type="text" placeholder="Nome"><br>
-    <input type="text" placeholder="Email"><br>
-    <input type="text" placeholder="Senha"><br>
+<form action="/admin/palestrantes/cadastrar" method="post">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" value="<?= htmlspecialchars(
+            $nome ?? "",
+        ) ?>" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="<?= htmlspecialchars(
+            $email ?? "",
+        ) ?>" required>
+    </div>
+    <div class="mb-3">
+        <label for="tema" class="form-label">Tema da Palestra</label>
+        <input type="text" class="form-control" id="tema" name="tema" value="<?= htmlspecialchars(
+            $tema ?? "",
+        ) ?>" required>
+    </div>
+    <div class="mb-3">
+        <label for="bio" class="form-label">Bio</label>
+        <textarea class="form-control" id="bio" name="bio" rows="3"><?= htmlspecialchars(
+            $bio ?? "",
+        ) ?></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <a href="/admin/palestrantes/listar" class="btn btn-secondary">Cancelar</a>
 </form>
