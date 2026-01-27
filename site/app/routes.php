@@ -21,6 +21,9 @@ $routes['palestrantes'] = [
 
 $url = $_SERVER['REQUEST_URI'];
 
+// Remove query string da URL (ex: ?id=1)
+$url = strtok($url, '?');
+
 $partes = explode('/', $url);
 
 $entidade = $partes[2] ?? '';
