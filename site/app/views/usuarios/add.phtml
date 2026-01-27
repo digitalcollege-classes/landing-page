@@ -1,10 +1,25 @@
-<h1>Cadastrar usuario</h1>
-
 <hr>
 
-<form action="">
-
-    <input type="text" placeholder="Nome"><br>
-    <input type="text" placeholder="Email"><br>
-    <input type="text" placeholder="Senha"><br>
-</form>
+<div class="container p-4">
+    <h1>Cadastrar usuario</h1>
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="nameHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="nameHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Endereço de Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Nós não compartilhamos seu email com ninguém</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
