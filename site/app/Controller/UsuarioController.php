@@ -16,17 +16,23 @@ class UsuarioController extends AbstractController
 
     public function list(): void
     {
-        $usuarios = [
-            [
-                'id' => 1,
-                'nome' => 'Chiquim',
-                'email' => 'chiquim@email.com',
-                'endereco' => 'Rua das Taquaras, 123 - Alameda dos Anjos',
-            ],
-        ];
+        $usuarios = Usuario::all();
 
         $this->view('usuarios/list', [
             'usuarios' => $usuarios,
         ]);
+    }
+
+    public function getAll(): void
+    {
+        //buscando os dados da camada de banco
+        $usuarios = Usuario::all();
+
+        header('Content-type: application/json');
+
+        // convertendo o array para JSON
+        echo json_encode($usuarios);
+
+        exit;
     }
 }

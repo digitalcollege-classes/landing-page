@@ -5,12 +5,15 @@ include '../app/Controller/AbstractController.php';
 include '../app/Controller/UsuarioController.php';
 include '../app/Controller/PalestranteController.php';
 
+include '../app/Model/Usuario.php';
+
 $routes = [];
 $routes['usuarios'] = [
     'cadastrar' => [UsuarioController::class, 'add'],
     'editar' => [UsuarioController::class, 'edit'],
     'excluir' => [UsuarioController::class, 'add'],
     'listar' => [UsuarioController::class, 'list'],
+    'api' => [UsuarioController::class, 'getAll'],
 ];
 $routes['palestrantes'] = [
     'cadastrar' => [PalestranteController::class, 'add'],
