@@ -6,6 +6,7 @@ include '../app/Controller/UsuarioController.php';
 include '../app/Controller/PalestranteController.php';
 
 include '../app/Model/Usuario.php';
+include '../app/Model/Palestrante.php';
 
 $routes = [];
 $routes['usuarios'] = [
@@ -20,6 +21,7 @@ $routes['palestrantes'] = [
     'editar' => [PalestranteController::class, 'edit'],
     'excluir' => [PalestranteController::class, 'add'],
     'listar' => [PalestranteController::class, 'list'],
+    'api' => [PalestranteController::class, 'getAll'],
 ];
 
 $url = $_SERVER['REQUEST_URI'];

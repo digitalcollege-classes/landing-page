@@ -16,39 +16,24 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>João Silva</td>
-                <td>joao.silva@example.com</td>
-                <td>Desenvolvimento Web</td>
-                <td>
-                    <a href="/admin/palestrantes/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="/admin/palestrantes/excluir?id=1" class="btn btn-sm btn-danger"
-                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+
+            <?php
+                foreach ($palestrantes as $palestrante){
+                    echo '
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>'.$palestrante['nome'].'</td>
+                        <td>'.$palestrante['email'].'</td>
+                        <td>'.$palestrante['especialidade'].'</td>
+                        <td>
+                            <a href="/admin/palestrantes/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="/admin/palestrantes/excluir?id=1" class="btn btn-sm btn-danger">Excluir<a>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Maria Santos</td>
-                <td>maria.santos@example.com</td>
-                <td>Data Science</td>
-                <td>
-                    <a href="/admin/palestrantes/editar?id=2" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="/admin/palestrantes/excluir?id=2" class="btn btn-sm btn-danger"
-                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Carlos Oliveira</td>
-                <td>carlos.oliveira@example.com</td>
-                <td>DevOps</td>
-                <td>
-                    <a href="/admin/palestrantes/editar?id=3" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="/admin/palestrantes/excluir?id=3" class="btn btn-sm btn-danger"
-                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
-                </td>
-            </tr>
+                    ';
+                }
+            ?>
+
         </tbody>
     </table>
 </div>
