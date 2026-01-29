@@ -1,76 +1,37 @@
-<h1>Listar usuarios</h1>
-
 <hr>
 
-<table>
-    <thead>
-    <tr>
-        <th>Titulo</th>
-        <th>Titulo</th>
-        <th>Titulo</th>
-        <th>Titulo</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    <tr>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-        <td>Texto</td>
-    </tr>
-    </tbody>
-</table>
+<div class="container p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Listar Usuários</h1>
+        <a href="/admin/usuarios/cadastrar" class="btn btn-primary">+ Novo Usuário</a>
+    </div>
+    <table class="table table-secondary table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Email</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($usuarios as $usuario) {
+                    echo '
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>'.$usuario['nome'].'</td>
+                        <td>'.$usuario['endereco'].'</td>
+                        <td>'.$usuario['email'].'</td>
+                        <td>
+                            <a href="/admin/usuarios/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="/admin/usuarios/excluir?id=1" class="btn btn-sm btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                    ';
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
