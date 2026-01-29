@@ -11,23 +11,30 @@ class PalestranteController extends AbstractController
 
     public function edit(): void
     {
+               
         $this->view('palestrantes/edit');
     }
 
     public function list(): void
     {
 
-        $palestrantes = [
-            [
-                'id' => 1,
-                'nome' => 'Palestrinnha',
-                'email' => 'chiquim@email.com',
-                'endereco' => 'Rua das Taquaras, 123 - Alameda dos Anjos',
-            ],
-        ];
+        $palestrantes = Palestrante::all();    
 
         $this->view('palestrantes/list', [
             'palestrantes' => $palestrantes,
         ]);
+    }
+
+    public function getAll(): void
+    {
+        // buscando os dados da camada de banco
+        $palestrantes = Palestrante::all();
+
+        header('Content-type: application/json');
+
+        // convertendo o array para JSON
+        echo json_encode($palestrantes);
+
+        exit;
     }
 }
