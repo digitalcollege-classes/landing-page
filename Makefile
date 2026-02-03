@@ -7,5 +7,8 @@ up_build:
 bash:
 	docker compose exec php bash
 
+composer_install:
+	docker compose exec -T php bash -c "composer install"
+
 down:
 	docker compose down

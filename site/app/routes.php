@@ -1,12 +1,9 @@
 <?php
 
-
-include '../app/Controller/AbstractController.php';
-include '../app/Controller/UsuarioController.php';
-include '../app/Controller/PalestranteController.php';
-
-include '../app/Model/Usuario.php';
-include '../app/Model/Palestrante.php';
+use App\Controller\ErrorController;
+use App\Controller\PalestraController;
+use App\Controller\PalestranteController;
+use App\Controller\UsuarioController;
 
 $routes = [];
 $routes['usuarios'] = [
@@ -23,6 +20,9 @@ $routes['palestrantes'] = [
     'listar' => [PalestranteController::class, 'list'],
     'api' => [PalestranteController::class, 'getAll'],
 ];
+$routes['palestras'] = [
+    'listar' => [PalestraController::class, 'list'],
+];
 
 $url = $_SERVER['REQUEST_URI'];
 
@@ -35,7 +35,7 @@ $entidade = $partes[2] ?? '';
 $acao = $partes[3] ?? '';
 
 if (false === isset($routes[$entidade][$acao])) {
-    echo "Pagina não encontrada";
+    (new ErrorController())->notFound();
     exit;
 }
 
