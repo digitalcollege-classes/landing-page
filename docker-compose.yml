@@ -11,6 +11,8 @@ services:
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - setup-lp_network
+    depends_on:
+      - mysql
 
   nginx:
     container_name: setup-lp_nginx
@@ -25,6 +27,24 @@ services:
     volumes:
       - ./site:/var/www
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - setup-lp_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: setup-lp_mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: setup_lp
+      MYSQL_USER: setup
+      MYSQL_PASSWORD: setup
+    volumes:
+      - ./db.sql:/db.sql
+      - setup-data:/var/lib/mysql
     networks:
       - setup-lp_network
 
