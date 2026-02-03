@@ -1,0 +1,41 @@
+<hr>
+
+<div class="container p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Listar Palestras</h1>
+        <a href="/admin/palestras/cadastrar" class="btn btn-primary">+ Novo Palestrante</a>
+    </div>
+    <table class="table table-secondary table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Descricao</th>
+                <th scope="col">Artista</th>
+                <th scope="col">Horario</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <?php
+                foreach ($palestras as $cada){
+                    echo '
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>'.$cada['titulo'].'</td>
+                        <td>'.$cada['descricao'].'</td>
+                        <td>'.$cada['palestrante'].'</td>
+                        <td>'.$cada['horario'].'</td>
+                        <td>
+                            <a href="/admin/palestrantes/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="/admin/palestrantes/excluir?id=1" class="btn btn-sm btn-danger">Excluir<a>
+                </td>
+            </tr>
+                    ';
+                }
+            ?>
+
+        </tbody>
+    </table>
+</div>

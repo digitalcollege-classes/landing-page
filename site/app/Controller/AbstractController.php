@@ -1,5 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Controller;
 
 abstract class AbstractController
 {
@@ -8,6 +11,7 @@ abstract class AbstractController
         //desestruturando os params
         extract($params);
 
+        include '../app/views/menu.phtml';
         include "../app/views/{$name}.phtml";
     }
 }

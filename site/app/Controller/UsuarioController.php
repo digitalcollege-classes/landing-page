@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+namespace App\Controller;
+
+use App\Model\Usuario;
+
 class UsuarioController extends AbstractController
 {
     public function add(): void
@@ -36,3 +40,4 @@ class UsuarioController extends AbstractController
         exit;
     }
 }
+

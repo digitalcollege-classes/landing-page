@@ -15,7 +15,12 @@ cd landing-page
 make up
 ```
 
-Pronto, deve estar rodando em <http://localhost:8080>
+4. Instala as depedencias
+```shell
+make composer_install
+```
+
+Pronto, deve estar rodando em <http://localhost:8080/admin>
 
 ---
 
