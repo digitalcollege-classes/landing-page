@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-class Palestrante
+class Palestrante extends AbstractModel
 {
   public string $nome;
   public string $email;
@@ -12,15 +12,8 @@ class Palestrante
 
   public static function all(): array
   {
-    $palestrantes = [
-           [
-                'id' => 1,
-                'nome' => 'Palestrinnha',
-                'email' => 'chiquim@email.com',
-                'especialidade' => 'Full Cyclo',
-            ],
+      $palestrantes = parent::db()->query("SELECT * FROM palestrante");
 
-    ];
-    return $palestrantes;
+      return $palestrantes->fetchAll(\PDO::FETCH_CLASS, Palestrante::class);
   }
 }
