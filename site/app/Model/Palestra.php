@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-class Palestra
+class Palestra extends AbstractModel
 {
     public string $titulo;
     public string $palestrante;
@@ -13,28 +13,9 @@ class Palestra
 
     public static function all(): array
     {
-        $talks = [
-            [
-                'titulo' => 'Introdução ao PHP',
-                'descricao' => 'PHP não morreu',
-                'palestrante' => 'Chiquim',
-                'horario' => '08:50 às 09:40',
-            ],
-            [
-                'titulo' => 'Introdução ao PHP',
-                'descricao' => 'PHP não morreu',
-                'palestrante' => 'Chiquim',
-                'horario' => '08:50 às 09:40',
-            ],
-            [
-                'titulo' => 'Introdução ao PHP',
-                'descricao' => 'PHP não morreu',
-                'palestrante' => 'Chiquim',
-                'horario' => '08:50 às 09:40',
-            ]
-        ];
+        $palestras = parent::db()->query("SELECT * FROM palestra");
 
-        return $talks;
+        return $palestras->fetchAll(\PDO::FETCH_CLASS, Palestra::class);
     }
 }
 
