@@ -18,20 +18,20 @@
         <tbody>
 
             <?php
-                foreach ($palestrantes as $palestrante){
-                    echo '
+            foreach ($palestrantes as $palestrante) {
+                echo '
                     <tr>
                         <th scope="row">1</th>
-                        <td>'.$palestrante['nome'].'</td>
-                        <td>'.$palestrante['email'].'</td>
-                        <td>'.$palestrante['especialidade'].'</td>
+                        <td>' . $palestrante->nome . '</td>
+                        <td>' . $palestrante->email . '</td>
+                        <td>' . $palestrante->especialidade . '</td>
                         <td>
                             <a href="/admin/palestrantes/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
                             <a href="/admin/palestrantes/excluir?id=1" class="btn btn-sm btn-danger">Excluir<a>
                 </td>
             </tr>
                     ';
-                }
+            }
             ?>
 
         </tbody>
