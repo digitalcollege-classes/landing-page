@@ -13,8 +13,11 @@ db:
 composer_install:
 	docker compose exec -T php bash -c "composer install"
 
-migrate:
-	docker compose exec -T mysql bash -c "mysql -u root -proot setup_lp < db.sql"
+migrate_up:
+	docker compose exec -T php bash -c "php commands/migrate-up.php"
+
+migrate_down:
+	docker compose exec -T php bash -c "php commands/migrate-down.php"
 
 down:
 	docker compose down

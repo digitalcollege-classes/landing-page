@@ -6,7 +6,7 @@ namespace App\Model;
 
 class Palestrante extends AbstractModel
 {
-    protected static string $table = 'palestrante';
+    protected static string $table = 'palestrantes';
 
     public string $nome;
     public string $email;
