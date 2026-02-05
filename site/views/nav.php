@@ -10,6 +10,7 @@
             <li><a href="#local" class="scrollSuave"><strong>Local</strong></a></li>
             <li><a href="#schedule" class="scrollSuave"><strong>Programação</strong></a></li>
             <li><a href="#tickets" class="scrollSuave"><strong>Ingressos</strong></a></li>
+            <li><a href="admin" class="scrollSuave"><strong>Admin</strong></a></li> 
         </ul>
 
         <ul id="nav-mobile" class="sidenav color-marron">
@@ -19,6 +20,8 @@
             <li><a href="#local" class="scrollSuave"><strong>Local</strong></a></li>
             <li><a href="#schedule" class="scrollSuave"><strong>Programação</strong></a></li>
             <li><a href="#tickets" class="scrollSuave"><strong>Ingressos</strong></a></li>
+            <li><a href="admin" class="scrollSuave"><strong>Admin</strong></a></li>
+
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
