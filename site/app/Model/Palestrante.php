@@ -4,23 +4,11 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-class Palestrante
+class Palestrante extends AbstractModel
 {
-  public string $nome;
-  public string $email;
-  public string $especialidade;
+    protected static string $table = 'palestrante';
 
-  public static function all(): array
-  {
-    $palestrantes = [
-           [
-                'id' => 1,
-                'nome' => 'Palestrinnha',
-                'email' => 'chiquim@email.com',
-                'especialidade' => 'Full Cyclo',
-            ],
-
-    ];
-    return $palestrantes;
-  }
+    public string $nome;
+    public string $email;
+    public string $especialidade;
 }

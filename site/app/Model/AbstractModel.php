@@ -6,14 +6,27 @@ namespace App\Model;
 
 abstract class AbstractModel
 {
-    public static function db()
+
+     protected static string $table;
+
+    public static function all(): array
+    {
+        $result = static::db()->query("SELECT * FROM " . static::$table);
+
+        return $result->fetchAll(\PDO::FETCH_CLASS, static::class);
+    }
+    
+    public static function db(): \PDO
     {
         $user = 'setup';
-        $pass = 'setup';
+        $password = 'setup';
         $host = 'setup-lp_mysql';
-        $dbName = 'setup_lp';
-        
-        return new \PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
+        $dbname = 'setup_lp';
 
+        return new \PDO(
+            'mysql:host=setup-lp_mysql;dbname=setup_lp',
+            $user,
+            $password
+        );
     }
 }

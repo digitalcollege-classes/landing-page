@@ -20,10 +20,10 @@
                 foreach ($usuarios as $usuario) {
                     echo '
                     <tr>
-                        <th scope="row">1</th>
-                        <td>'.$usuario['nome'].'</td>
-                        <td>'.$usuario['endereco'].'</td>
-                        <td>'.$usuario['email'].'</td>
+                        <td>'.$usuario->id.'</td>
+                        <td>'.$usuario->nome.'</td>
+                        <td>'.$usuario->endereco.'</td>
+                        <td>'.($usuario->email ?? '').'</td>
                         <td>
                             <a href="/admin/usuarios/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
                             <a href="/admin/usuarios/excluir?id=1" class="btn btn-sm btn-danger">Excluir</a>
