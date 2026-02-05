@@ -6,16 +6,45 @@ namespace App\Model;
 
 class Palestra extends AbstractModel
 {
+    public int $id;
     public string $titulo;
-    public string $palestrante;
     public string $descricao;
     public string $horario;
+    public ?string $palestrante_id;
+    public ?string $palestrante_nome;
 
-    public static function all(): array
+
+    public static function tableData(): array
     {
-        $palestras = parent::db()->query("SELECT * FROM palestra");
+        return ['palestras', self::class];
+    }
 
-        return $palestras->fetchAll(\PDO::FETCH_CLASS, Palestra::class);
+
+    public static function getAll(): array
+    {
+        return parent::all();
+    }
+
+    public static function getAllWithNome(): array
+    {
+        $palestras = self::getAll();
+        $palestrantes = Palestrante::getAll();
+
+        foreach ($palestras as $cada) {
+            $id = $cada->palestrante_id;
+
+            $resultados = array_filter($palestrantes, function ($palestrante) use ($id) {
+                return $id == $palestrante->id;
+            });
+
+            $palestranteEncontrado = reset($resultados);
+
+            if ($palestranteEncontrado) {
+                $cada->palestrante_nome = $palestranteEncontrado->nome;
+            } else {
+                $cada->palestrante_nome = 'Palestrante não encontrado';
+            }
+        }
+        return $palestras;
     }
 }
-

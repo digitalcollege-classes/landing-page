@@ -16,5 +16,11 @@ composer_install:
 migrate:
 	docker compose exec -T mysql bash -c "mysql -u root -proot setup_lp < db.sql"
 
+reset_db:
+	docker compose down -v 'mysql' 
+	$(MAKE) up
+	sleep 15
+	$(MAKE) migrate
+
 down:
 	docker compose down

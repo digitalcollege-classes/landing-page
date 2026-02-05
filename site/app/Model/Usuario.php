@@ -10,11 +10,19 @@ class Usuario extends AbstractModel
     public string $nome;
     public string $endereco;
 
-    public static function all(): array
+    public static function tableData(): array
     {
-        $usuarios = parent::db()->query("SELECT * FROM tb_alunos");
+        return ['usuarios', self::class];
+    }
 
-        return $usuarios->fetchAll(\PDO::FETCH_CLASS, self::class);
+    public static function classType()
+    {
+        return self::class;
+    }
+
+
+    public static function getAll(): array
+    {
+        return parent::all();
     }
 }
-

@@ -1,0 +1,25 @@
+<hr>
+
+<div class="container p-4">
+    <h1>Cadastrar Palestra</h1>
+    <form>
+        <div class="mb-3">
+            <label for="inputTitulo" class="form-label">Título da palestra</label>
+            <input type="text" class="form-control" id="inputTitulo" placeholder="Título da palestra">
+        </div>
+        <div class="mb-3">
+            <label for="inputDescricao" class="form-label">Descrição</label>
+            <textarea class="form-control" id="inputDescricao" rows="4" placeholder="Breve descrição sobre a palestra"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="inputHorario" class="form-label">Horário da Palestra</label>
+            <input type="text" class="form-control" id="inputHorario" placeholder="De tal hora à tal hora">
+        </div>
+        <div class="mb-3">
+            <label for="inputPalestrante" class="form-label">Nome do Palestrante</label>
+            <input type="text" class="form-control" id="inputPalestrante" placeholder="Nome do Palestrante">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <a href="/admin/palestras/listar" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

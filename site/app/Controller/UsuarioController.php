@@ -20,7 +20,7 @@ class UsuarioController extends AbstractController
 
     public function list(): void
     {
-        $usuarios = Usuario::all();
+        $usuarios = Usuario::getAll();
 
         $this->view('usuarios/list', [
             'usuarios' => $usuarios,
@@ -30,7 +30,7 @@ class UsuarioController extends AbstractController
     public function getAll(): void
     {
         //buscando os dados da camada de banco
-        $usuarios = Usuario::all();
+        $usuarios = Usuario::getAll();
 
         header('Content-type: application/json');
 
@@ -40,4 +40,3 @@ class UsuarioController extends AbstractController
         exit;
     }
 }
-
