@@ -3,6 +3,7 @@
 use App\Controller\ErrorController;
 use App\Controller\PalestraController;
 use App\Controller\PalestranteController;
+use App\Controller\PatrocinadorController;
 use App\Controller\UsuarioController;
 
 $routes = [];
@@ -22,6 +23,11 @@ $routes['palestrantes'] = [
 ];
 $routes['palestras'] = [
     'listar' => [PalestraController::class, 'list'],
+];
+$routes['patrocinadores'] = [
+    'cadastrar' => [PatrocinadorController::class, 'add'],
+    'editar' => [PatrocinadorController::class, 'edit'],
+    'listar' => [PatrocinadorController::class, 'list'],
 ];
 
 $url = $_SERVER['REQUEST_URI'];

@@ -1,0 +1,41 @@
+<hr>
+
+<div class="container p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Listar Patrocinadores</h1>
+        <a href="/admin/patrocinadores/cadastrar" class="btn btn-primary">+ Novo Patrocinador</a>
+    </div>
+    <table class="table table-secondary table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descricao</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Site</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <?php
+            foreach ($patrocinadores as $cada) {
+                echo '
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>' . $cada['nome'] . '</td>
+                        <td>' . $cada['descricao'] . '</td>
+                        <td>' . $cada['tipoPatrocinio'] . '</td>
+                        <td><a href="' . $cada['urlWebSite'] . '" target="_blank">' . $cada['nome'] . '</td>
+                        <td>
+                            <a href="/admin/patrocinadores/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="/admin/patrocinadores/excluir?id=1" class="btn btn-sm btn-danger">Excluir<a>
+                </td>
+            </tr>
+                    ';
+            }
+            ?>
+
+        </tbody>
+    </table>
+</div>
