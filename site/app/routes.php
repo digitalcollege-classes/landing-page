@@ -26,6 +26,7 @@ $routes['palestras'] = [
 ];
 $routes['patrocinadores'] = [
     'cadastrar' => [PatrocinadorController::class, 'add'],
+    'editar' => [PatrocinadorController::class, 'edit'],
     'listar' => [PatrocinadorController::class, 'list'],
 ];
 
