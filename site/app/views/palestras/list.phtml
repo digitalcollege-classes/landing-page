@@ -3,7 +3,7 @@
 <div class="container p-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1>Listar Palestras</h1>
-        <a href="/admin/palestras/cadastrar" class="btn btn-primary">+ Novo Palestrante</a>
+        <a href="/admin/palestras/cadastrar" class="btn btn-primary">+ Nova Palestra</a>
     </div>
     <table class="table table-secondary table-striped-columns">
         <thead>
@@ -28,8 +28,8 @@
                         <td>' . $cada->palestrante_nome . '</td>
                         <td>' . $cada->horario . '</td>
                         <td>
-                            <a href="/admin/palestrantes/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
-                            <a href="/admin/palestrantes/excluir?id=1" class="btn btn-sm btn-danger">Excluir<a>
+                            <a href="/admin/palestras/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="/admin/palestras/excluir?id=1" class="btn btn-sm btn-danger">Excluir<a>
                 </td>
             </tr>
                     ';
