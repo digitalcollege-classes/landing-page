@@ -6,6 +6,16 @@ namespace App\Model;
 
 abstract class AbstractModel
 {
+
+     protected static string $table;
+
+    public static function all(): array
+    {
+        $result = static::db()->query("SELECT * FROM " . static::$table);
+
+        return $result->fetchAll(\PDO::FETCH_CLASS, static::class);
+    }
+    
     public static function db(): \PDO
     {
         $user = 'setup';

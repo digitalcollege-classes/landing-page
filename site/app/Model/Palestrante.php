@@ -6,14 +6,9 @@ namespace App\Model;
 
 class Palestrante extends AbstractModel
 {
-  public string $nome;
-  public string $email;
-  public string $especialidade;
+    protected static string $table = 'palestrante';
 
-  public static function all(): array
-  {
-      $palestrantes = parent::db()->query("SELECT * FROM palestrante");
-
-      return $palestrantes->fetchAll(\PDO::FETCH_CLASS, Palestrante::class);
-  }
+    public string $nome;
+    public string $email;
+    public string $especialidade;
 }
