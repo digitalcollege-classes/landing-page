@@ -25,6 +25,7 @@ $routes['palestras'] = [
     'listar' => [PalestraController::class, 'list'],
 ];
 $routes['patrocinadores'] = [
+    'cadastrar' => [PatrocinadorController::class, 'add'],
     'listar' => [PatrocinadorController::class, 'list'],
 ];
 
