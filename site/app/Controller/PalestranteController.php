@@ -15,14 +15,14 @@ class PalestranteController extends AbstractController
 
     public function edit(): void
     {
-               
+
         $this->view('palestrantes/edit');
     }
 
     public function list(): void
     {
 
-        $palestrantes = Palestrante::all();    
+        $palestrantes = Palestrante::getAll();
 
         $this->view('palestrantes/list', [
             'palestrantes' => $palestrantes,
@@ -32,7 +32,7 @@ class PalestranteController extends AbstractController
     public function getAll(): void
     {
         // buscando os dados da camada de banco
-        $palestrantes = Palestrante::all();
+        $palestrantes = Palestrante::getAll();
 
         header('Content-type: application/json');
 

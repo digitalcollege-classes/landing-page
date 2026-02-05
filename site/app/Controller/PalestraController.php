@@ -10,7 +10,7 @@ class PalestraController extends AbstractController
 {
     public function list(): void
     {
-        $palestras = Palestra::all();
+        $palestras = Palestra::getAllWithNome();
 
         $this->view('palestra/list', [
             'palestras' => $palestras,
