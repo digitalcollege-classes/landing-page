@@ -20,9 +20,22 @@ make up
 make composer_install
 ```
 
+5. Se for a primeira vez migre os dados sql
+```shell
+make migrate
+```
+
+
 Pronto, deve estar rodando em <http://localhost:8080/admin>
 
 ---
+
+### Troubleshooting
+
+1. Se for precisar resetar o banco de dados
+```shell
+make reset_db
+```
 
 ## Como contribuir com esse projeto
 
