@@ -17,6 +17,7 @@ INSERT INTO `tb_alunos`
 DROP TABLE IF EXISTS `palestras`;
 DROP TABLE IF EXISTS `palestrantes`;
 DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `patrocinadores`;
 
 CREATE TABLE `palestrantes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -59,3 +60,18 @@ INSERT INTO `usuarios` (`nome`, `endereco`) VALUES
 ('Ana', 'Rua das Flores, 123, Bom Jardim'),
 ('Bruno', 'Avenida Principal, 456, Pirambu'),
 ('Carla', 'Praça da Matriz, 789, Centro');
+
+CREATE TABLE IF NOT EXISTS `patrocinadores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `descricao` text NOT NULL,
+  `tipoPatrocinio` varchar(255) NOT NULL,
+  `urlLogo` varchar(255) NOT NULL,
+  `urlFacebook` varchar(255) DEFAULT NULL,
+  `urlInstagram` varchar(255) DEFAULT NULL,
+  `urlWebSite` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `patrocinadores` (`nome`, `descricao`, `tipoPatrocinio`, `urlLogo`, `urlFacebook`, `urlInstagram`, `urlWebSite`) VALUES
+('Ypioca', 'Fabrica do liquido sagrado.', 'Ouro', 'https://br.thebar.com/ypioca-reserva-carvalho--965ml-689735_pai/p?srsltid=AfmBOorFmblJBcwledVE9WYQk53ebkqcBH46TppTpycttnMXLDnXJKn5', 'https://www.facebook.com/ypiocaoficialbr', 'https://www.instagram.com/ypiocaoficialbr/', 'https://www.br.thebar.com/');
