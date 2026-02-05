@@ -6,7 +6,7 @@ namespace App\Model;
 
 class Usuario extends AbstractModel
 {
-    protected static string $table = 'tb_alunos';
+    protected static string $table = 'usuarios';
 
     public int $id;
     public string $nome;
