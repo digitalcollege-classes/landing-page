@@ -19,4 +19,12 @@ abstract class AbstractModel
             $password
         );
     }
+
+
+    public static function all(): array {
+        $obj = new static;
+        $palestrantes = self::db()->query("SELECT * FROM {$obj->table}");
+
+        return $palestrantes->fetchAll(\PDO::FETCH_CLASS, $obj::class);
+    }
 }
