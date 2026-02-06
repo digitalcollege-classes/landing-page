@@ -12,7 +12,7 @@ class PalestraController extends AbstractController
     {
         $palestras = Palestra::all();
 
-        $this->view('palestra/list', [
+        $this->view('palestras/list', [
             'palestras' => $palestras,
         ]);
     }
