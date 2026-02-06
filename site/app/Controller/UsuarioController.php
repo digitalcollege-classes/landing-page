@@ -10,7 +10,19 @@ class UsuarioController extends AbstractController
 {
     public function add(): void
     {
-        $this->view('usuarios/add');
+        if (empty($_POST)) {
+            $this->view('usuarios/add');
+            return;
+        }
+
+        $usuario = new Usuario();
+        $usuario->nome = $_POST['nome'];
+        $usuario->email = $_POST['email'];
+        $usuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+
+        $usuario->insert();
+
+        echo "Novo usuario cadastrado com sucesso!";
     }
 
     public function edit(): void
