@@ -6,6 +6,7 @@ namespace App\Model;
 
 class Palestra extends AbstractModel
 {
+    public int $id;
     public string $titulo;
     public string $palestrante;
     public string $descricao;
@@ -13,9 +14,19 @@ class Palestra extends AbstractModel
 
     public static function all(): array
     {
-        $palestras = parent::db()->query("SELECT * FROM palestra");
+        $sql = "
+            SELECT 
+                p.id,
+                p.titulo,
+                pa.nome AS palestrante,
+                p.descricao,
+                p.data_palestra AS horario
+            FROM palestra p
+            JOIN palestrante pa ON pa.id = p.palestrante_id
+        ";
 
-        return $palestras->fetchAll(\PDO::FETCH_CLASS, Palestra::class);
+        $palestras = parent::db()->query($sql);
+
+        return $palestras->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
 }
-

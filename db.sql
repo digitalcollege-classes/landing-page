@@ -1,14 +1,15 @@
 DROP TABLE IF EXISTS `tb_alunos`;
 
 CREATE TABLE IF NOT EXISTS `tb_alunos` (
-     `id` int NOT NULL AUTO_INCREMENT,
-     `nome` varchar(100) NOT NULL,
-     `endereco` varchar(255) DEFAULT NULL,
+     `id` INT NOT NULL AUTO_INCREMENT,
+     `nome` VARCHAR(100) NOT NULL,
+     `email` VARCHAR(150) NOT NULL,
+     `endereco` VARCHAR(255) DEFAULT NULL,
      PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `tb_alunos`
-    VALUES
-        (1,'Francisquinha','Rua Vicente Leite, 1010'),
-        (2,'Chiquinho','Rua dos Tabajaras, 123')
-;
+VALUES
+    (1,'Francisquinha','francisquinha@email.com','Rua Vicente Leite, 1010'),
+    (2,'Chiquinho','chiquinho@email.com','Rua dos Tabajaras, 123');
+
