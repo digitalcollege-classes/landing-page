@@ -2,7 +2,8 @@
 
 $url = $_SERVER['REQUEST_URI'];
 
-include "../vendor/autoload.php";
+require_once __DIR__ . '/../vendor/autoload.php';
+
 
 if (str_contains($url, '/admin')) {
     include '../app/routes.php';
