@@ -22,11 +22,19 @@ $routes['palestrantes'] = [
     'api' => [PalestranteController::class, 'getAll'],
 ];
 $routes['palestras'] = [
+    'cadastrar' => [PalestraController::class, 'add'],
+    'editar' => [PalestraController::class, 'edit'],
     'listar' => [PalestraController::class, 'list'],
+    'excluir' => [PalestraController::class, 'add'],
+    'api' => [PalestraController::class, 'getAll'],
 ];
 
 $routes['patrocinadores'] = [
+    'cadastrar' => [PatrocinadorController::class, 'add'],
+    'editar' => [PatrocinadorController::class, 'edit'],
     'listar' => [PatrocinadorController::class, 'list'],
+    'excluir' => [PatrocinadorController::class, 'add'],
+    'api' => [PatrocinadorController::class, 'getAll'],
 ];
 
 $url = $_SERVER['REQUEST_URI'];
