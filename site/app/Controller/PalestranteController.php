@@ -15,14 +15,14 @@ class PalestranteController extends AbstractController
 
     public function edit(): void
     {
-               
+
         $this->view('palestrantes/edit');
     }
 
     public function list(): void
     {
 
-        $palestrantes = Palestrante::all();    
+        $palestrantes = Palestrante::all();
 
         $this->view('palestrantes/list', [
             'palestrantes' => $palestrantes,
