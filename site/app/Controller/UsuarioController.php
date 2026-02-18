@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Builder\UsuarioBuilder;
 use App\Model\Usuario;
 
 class UsuarioController extends AbstractController
@@ -15,14 +16,13 @@ class UsuarioController extends AbstractController
             return;
         }
 
-        $usuario = new Usuario();
-        $usuario->nome = $_POST['nome'];
-        $usuario->email = $_POST['email'];
-        $usuario->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+        $usuario = (new UsuarioBuilder())
+            ->setNome($_POST['nome'])
+            ->setEmail($_POST['email'])
+            ->setSenha($_POST['senha'])
+            ->build();
 
         $usuario->insert();
-
-        echo "Novo usuario cadastrado com sucesso!";
     }
 
     public function edit(): void
