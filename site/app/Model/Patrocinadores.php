@@ -14,22 +14,28 @@ class Patrocinadores extends AbstractModel
   public string $urlInstagram;
   public string $urlWebSite;
 
+  protected static string $table = 'patrocinadores';
+
+  public function insert(): void
+  {
+    $sql = "INSERT INTO patrocinadores (nome, descricao, tipoPatrocinio, urlLogo, urlFacebook, urlInstagram, urlWebSite)
+            VALUES (:nome, :descricao, :tipoPatrocinio, :urlLogo, :urlFacebook, :urlInstagram, :urlWebSite)";
+
+    parent::db()->prepare($sql)->execute([
+      ':nome'           => $this->nome,
+      ':descricao'      => $this->descricao,
+      ':tipoPatrocinio' => $this->tipoPatrocinio,
+      ':urlLogo'        => $this->urlLogo,
+      ':urlFacebook'    => $this->urlFacebook,
+      ':urlInstagram'   => $this->urlInstagram,
+      ':urlWebSite'     => $this->urlWebSite,
+    ]);
+  }
+
   public static function all(): array
   {
-    // $palestrantes = parent::db()->query("SELECT * FROM patrocinadores");
+    $palestrantes = parent::db()->query("SELECT * FROM patrocinadores");
 
-    // return $palestrantes->fetchAll(\PDO::FETCH_CLASS, self::class);
-    return [
-      [
-        "id" => 1,
-        "nome" => "Ypioca",
-        "descricao" => "Fabrica do liquido sagrado",
-        "tipoPatrocinio" => "Ouro",
-        "urlLogo" => "https://br.thebar.com/ypioca-reserva-carvalho--965ml-689735_pai/p?srsltid=AfmBOorFmblJBcwledVE9WYQk53ebkqcBH46TppTpycttnMXLDnXJKn5",
-        "urlFacebook" => "https://www.facebook.com/ypiocaoficialbr",
-        "urlInstagram" => "https://www.instagram.com/ypiocaoficialbr/",
-        "urlWebSite" => "https://www.br.thebar.com/"
-      ],
-    ];
+    return $palestrantes->fetchAll(\PDO::FETCH_CLASS, self::class);
   }
 }
