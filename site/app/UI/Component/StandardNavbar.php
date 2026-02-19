@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Component;
 
-class StandardNavbar implements NavbarInterface
+class StandardNavbar implements ComponentInterface
 {
     public function render(): string
     {

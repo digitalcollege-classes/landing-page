@@ -30,16 +30,26 @@
         $currentTheme = 'standard';
     }
 
-    // --- Criação da fábrica baseada no tema atual ---
-    $factoryForDemo = null;
-    if ($currentTheme === 'standard') {
-        $factoryForDemo = new StandardThemeFactory();
-    } else {
-        $factoryForDemo = new PremiumThemeFactory();
+    function createThemeFactory(string $theme)
+    {
+        $factory = null;
+        switch ($theme) {
+            case 'premium':
+                $factory = new PremiumThemeFactory();
+                break;
+            default:
+                $factory = new StandardThemeFactory();
+                break;
+        }
+        return $factory;
     }
 
+    // --- Criação da fábrica baseada no tema atual ---
+    $themeFactory = createThemeFactory($currentTheme);
+
     // Usa a fábrica para criar os componentes da UI para demonstração
-    $navbarForDemo = $factoryForDemo->createNavbar();
+    $themedNavbar = $themeFactory->createNavbar();
+    $themedBanner = $themeFactory->createBanner();
 
     // Determina qual será o próximo tema para o botão
     $nextTheme = ($currentTheme === 'standard') ? 'premium' : 'standard';
@@ -47,13 +57,13 @@
     ?>
 
     <!-- Top Navigation -->
-    <?= $navbarForDemo->render() ?>
+    <?= $themedNavbar->render() ?>
     <div style="text-align: center; padding-top: 70px;">
         <a href="?theme=<?= $nextTheme ?>" style="display: inline-block;" class="btn btn-primary">Trocar Tema para <?= ucfirst($nextTheme) ?></a>
     </div>
 
     <!-- Section Banner -->
-    <?php require_once '../views/banner.php'; ?>
+    <?= $themedBanner->render() ?>
 
     <!-- Section Parallax One -->
     <?php require_once '../views/parallax-one.php'; ?>

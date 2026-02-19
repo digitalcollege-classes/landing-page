@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Component;
 
-class PremiumNavbar implements NavbarInterface
+class PremiumNavbar implements ComponentInterface
 {
     public function render(): string
     {
