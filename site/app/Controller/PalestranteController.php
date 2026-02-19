@@ -24,13 +24,35 @@ class PalestranteController extends AbstractController
             ->setBiografia($_POST['biografia'] ?? '')
             ->build();
 
-        echo "Palestrante criado com sucesso!";
+        $palestrante->insert();
+
+        header('Location: /admin/palestrantes/listar');
+        exit;
+    }
+
+    public function delete(): void
+    {
+        Palestrante::delete((int) $_GET['id']);
+
+        header('Location: /admin/palestrantes/listar');
+        exit;
     }
 
     public function edit(): void
     {
-               
-        $this->view('palestrantes/edit');
+        $palestrante = Palestrante::findById((int) $_GET['id']);
+
+        if (!empty($_POST)) {
+            $palestrante->nome          = $_POST['nome'];
+            $palestrante->email         = $_POST['email'];
+            $palestrante->especialidade = $_POST['especialidade'];
+            $palestrante->update();
+
+            header('Location: /admin/palestrantes/listar');
+            exit;
+        }
+
+        $this->view('palestrantes/edit', ['palestrante' => $palestrante]);
     }
 
     public function list(): void

@@ -6,6 +6,7 @@ namespace App\Model;
 
 class Patrocinadores extends AbstractModel
 {
+  public int $id;
   public string $nome;
   public string $descricao;
   public string $tipoPatrocinio;
@@ -29,6 +30,24 @@ class Patrocinadores extends AbstractModel
       ':urlFacebook'    => $this->urlFacebook,
       ':urlInstagram'   => $this->urlInstagram,
       ':urlWebSite'     => $this->urlWebSite,
+    ]);
+  }
+
+  public function update(): void
+  {
+    $sql = "UPDATE patrocinadores SET nome = :nome, descricao = :descricao, tipoPatrocinio = :tipoPatrocinio,
+            urlLogo = :urlLogo, urlFacebook = :urlFacebook, urlInstagram = :urlInstagram, urlWebSite = :urlWebSite
+            WHERE id = :id";
+
+    parent::db()->prepare($sql)->execute([
+      ':nome'           => $this->nome,
+      ':descricao'      => $this->descricao,
+      ':tipoPatrocinio' => $this->tipoPatrocinio,
+      ':urlLogo'        => $this->urlLogo,
+      ':urlFacebook'    => $this->urlFacebook,
+      ':urlInstagram'   => $this->urlInstagram,
+      ':urlWebSite'     => $this->urlWebSite,
+      ':id'             => $this->id,
     ]);
   }
 

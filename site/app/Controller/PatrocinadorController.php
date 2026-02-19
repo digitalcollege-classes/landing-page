@@ -28,13 +28,37 @@ class PatrocinadorController extends AbstractController
 
         $patrocinador->insert();
 
-        echo "Novo patrocinador cadastrado com sucesso!";
+        header('Location: /admin/patrocinadores/listar');
+        exit;
+    }
+
+    public function delete(): void
+    {
+        Patrocinadores::delete((int) $_GET['id']);
+
+        header('Location: /admin/patrocinadores/listar');
+        exit;
     }
 
     public function edit(): void
     {
+        $patrocinador = Patrocinadores::findById((int) $_GET['id']);
 
-        $this->view('patrocinadores/edit');
+        if (!empty($_POST)) {
+            $patrocinador->nome           = $_POST['nome'];
+            $patrocinador->descricao      = $_POST['descricao'];
+            $patrocinador->tipoPatrocinio = $_POST['tipoPatrocinio'];
+            $patrocinador->urlLogo        = $_POST['urlLogo'];
+            $patrocinador->urlFacebook    = $_POST['urlFacebook'] ?? '';
+            $patrocinador->urlInstagram   = $_POST['urlInstagram'] ?? '';
+            $patrocinador->urlWebSite     = $_POST['urlWebSite'] ?? '';
+            $patrocinador->update();
+
+            header('Location: /admin/patrocinadores/listar');
+            exit;
+        }
+
+        $this->view('patrocinadores/edit', ['patrocinador' => $patrocinador]);
     }
 
     public function list(): void

@@ -12,7 +12,7 @@ class PalestraController extends AbstractController
     public function add(): void
     {
         if (empty($_POST)) {
-            $this->view('palestra/add');
+            $this->view('palestras/add');
             return;
         }
 
@@ -25,13 +25,40 @@ class PalestraController extends AbstractController
 
         $palestra->insert();
 
-        echo "Palestra cadastrada com sucesso!";
+        header('Location: /admin/palestras/listar');
+        exit;
+    }
+
+    public function delete(): void
+    {
+        Palestra::delete((int) $_GET['id']);
+
+        header('Location: /admin/palestras/listar');
+        exit;
+    }
+
+    public function edit(): void
+    {
+        $palestra = Palestra::findById((int) $_GET['id']);
+
+        if (!empty($_POST)) {
+            $palestra->titulo      = $_POST['titulo'];
+            $palestra->palestrante = $_POST['palestrante'];
+            $palestra->descricao   = $_POST['descricao'];
+            $palestra->horario     = $_POST['horario'];
+            $palestra->update();
+
+            header('Location: /admin/palestras/listar');
+            exit;
+        }
+
+        $this->view('palestras/edit', ['palestra' => $palestra]);
     }
 
     public function list(): void
     {
         $palestras = Palestra::all();
-        $this->view('palestra/list', [
+        $this->view('palestras/list', [
             'palestras' => $palestras,
         ]);
     }
