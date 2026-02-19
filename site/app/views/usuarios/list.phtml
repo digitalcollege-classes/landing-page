@@ -25,8 +25,8 @@
                         <td>'.$usuario->endereco.'</td>
                         <td>'.($usuario->email ?? '').'</td>
                         <td>
-                            <a href="/admin/usuarios/editar?id=1" class="btn btn-sm btn-warning">Editar</a>
-                            <a href="/admin/usuarios/excluir?id=1" class="btn btn-sm btn-danger">Excluir</a>
+                            <a href="/admin/usuarios/editar?id='.$usuario->id.'" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="/admin/usuarios/excluir?id='.$usuario->id.'" class="btn btn-sm btn-danger">Excluir</a>
                         </td>
                     </tr>
                     ';

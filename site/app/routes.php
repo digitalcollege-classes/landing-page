@@ -10,23 +10,27 @@ $routes = [];
 $routes['usuarios'] = [
     'cadastrar' => [UsuarioController::class, 'add'],
     'editar' => [UsuarioController::class, 'edit'],
-    'excluir' => [UsuarioController::class, 'add'],
+    'excluir' => [UsuarioController::class, 'delete'],
     'listar' => [UsuarioController::class, 'list'],
     'api' => [UsuarioController::class, 'getAll'],
 ];
 $routes['palestrantes'] = [
     'cadastrar' => [PalestranteController::class, 'add'],
     'editar' => [PalestranteController::class, 'edit'],
-    'excluir' => [PalestranteController::class, 'add'],
+    'excluir' => [PalestranteController::class, 'delete'],
     'listar' => [PalestranteController::class, 'list'],
     'api' => [PalestranteController::class, 'getAll'],
 ];
 $routes['palestras'] = [
+    'cadastrar' => [PalestraController::class, 'add'],
+    'editar' => [PalestraController::class, 'edit'],
+    'excluir' => [PalestraController::class, 'delete'],
     'listar' => [PalestraController::class, 'list'],
 ];
 $routes['patrocinadores'] = [
     'cadastrar' => [PatrocinadorController::class, 'add'],
     'editar' => [PatrocinadorController::class, 'edit'],
+    'excluir' => [PatrocinadorController::class, 'delete'],
     'listar' => [PatrocinadorController::class, 'list'],
 ];
 

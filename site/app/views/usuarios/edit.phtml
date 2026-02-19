@@ -1,25 +1,21 @@
 <hr>
 
 <div class="container p-4">
-    <h1>Editar usuario</h1>
-    <form>
+    <h1>Editar Usuario</h1>
+    <form method="POST" action="/admin/usuarios/editar?id=<?= $usuario->id ?>">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="nameHelp">
+            <label for="inputNome" class="form-label">Nome</label>
+            <input type="text" name="nome" class="form-control" id="inputNome" value="<?= htmlspecialchars($usuario->nome) ?>">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Endereço</label>
-            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="nameHelp">
+            <label for="inputEndereco" class="form-label">Endereço</label>
+            <input type="text" name="endereco" class="form-control" id="inputEndereco" value="<?= htmlspecialchars($usuario->endereco) ?>">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Endereço de Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">Nós não compartilhamos seu email com ninguém</div>
+            <label for="inputEmail" class="form-label">Endereço de Email</label>
+            <input type="email" name="email" class="form-control" id="inputEmail" value="<?= htmlspecialchars($usuario->email) ?>">
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-success">Salvar Alterações</button>
+        <a href="/admin/usuarios/listar" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>

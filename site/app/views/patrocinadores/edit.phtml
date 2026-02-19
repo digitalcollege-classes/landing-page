@@ -2,36 +2,36 @@
 
 <div class="container p-4">
     <h1>Editar Patrocinador</h1>
-    <form>
+    <form method="POST" action="/admin/patrocinadores/editar?id=<?= $patrocinador->id ?>">
         <div class="mb-3">
             <label for="inputNome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="inputNome" placeholder="Nome completo">
+            <input type="text" name="nome" class="form-control" id="inputNome" value="<?= htmlspecialchars($patrocinador->nome) ?>">
         </div>
         <div class="mb-3">
             <label for="inputDescricao" class="form-label">Descrição</label>
-            <textarea class="form-control" id="inputDescricao" rows="4" placeholder="Breve descrição sobre o patrocinador"></textarea>
+            <textarea name="descricao" class="form-control" id="inputDescricao" rows="4"><?= htmlspecialchars($patrocinador->descricao) ?></textarea>
         </div>
         <div class="mb-3">
-            <label for="inputTipo" class="form-label">Tipo do Patrocinio</label>
-            <input type="text" class="form-control" id="inputTipo" placeholder="Patrocinador Ouro">
+            <label for="inputTipo" class="form-label">Tipo do Patrocínio</label>
+            <input type="text" name="tipoPatrocinio" class="form-control" id="inputTipo" value="<?= htmlspecialchars($patrocinador->tipoPatrocinio) ?>">
         </div>
         <div class="mb-3">
             <label for="inputLogo" class="form-label">URL da Logo</label>
-            <input type="url" class="form-control" id="inputLogo" placeholder="https://exemplo.com/foto.jpg">
+            <input type="url" name="urlLogo" class="form-control" id="inputLogo" value="<?= htmlspecialchars($patrocinador->urlLogo) ?>">
         </div>
         <div class="mb-3">
             <label for="inputFacebook" class="form-label">URL do Facebook</label>
-            <input type="url" class="form-control" id="inputFacebook" placeholder="https://facebook.com/exemplo">
+            <input type="url" name="urlFacebook" class="form-control" id="inputFacebook" value="<?= htmlspecialchars($patrocinador->urlFacebook) ?>">
         </div>
         <div class="mb-3">
             <label for="inputInstagram" class="form-label">URL do Instagram</label>
-            <input type="url" class="form-control" id="inputInstagram" placeholder="https://instagram.com/exemplo">
+            <input type="url" name="urlInstagram" class="form-control" id="inputInstagram" value="<?= htmlspecialchars($patrocinador->urlInstagram) ?>">
         </div>
         <div class="mb-3">
             <label for="inputWebSite" class="form-label">URL do WebSite</label>
-            <input type="url" class="form-control" id="inputWebSite" placeholder="https://website.com/exemplo">
+            <input type="url" name="urlWebSite" class="form-control" id="inputWebSite" value="<?= htmlspecialchars($patrocinador->urlWebSite) ?>">
         </div>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btn btn-success">Salvar Alterações</button>
         <a href="/admin/patrocinadores/listar" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
