@@ -15,6 +15,18 @@ abstract class AbstractModel
 
         return $result->fetchAll(\PDO::FETCH_CLASS, static::class);
     }
+
+    /**
+     * Retorna todos os registros da tabela como ModelCollection iterável
+     * 
+     * @return ModelCollection
+     */
+    public static function allAsCollection(): ModelCollection
+    {
+        $models = static::all();
+        
+        return new ModelCollection($models);
+    }
     
     public static function db(): \PDO
     {

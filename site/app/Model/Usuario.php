@@ -10,6 +10,7 @@ class Usuario extends AbstractModel
 
     public int $id;
     public string $nome;
-    public string $endereco;
+    public string $email;
+    public string $senha;
 }
 

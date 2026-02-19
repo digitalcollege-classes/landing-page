@@ -13,9 +13,9 @@ INSERT INTO `tb_alunos`
         (2,'Chiquinho','Rua dos Tabajaras, 123')
 ;
 
-DROP TABLE IF EXISTS `palestrante`;
+DROP TABLE IF EXISTS `palestrantes`;
 
-CREATE TABLE IF NOT EXISTS `palestrante` (
+CREATE TABLE IF NOT EXISTS `palestrantes` (
      `id` int NOT NULL AUTO_INCREMENT,
      `nome` varchar(100) NOT NULL,
      `email` varchar(255) NOT NULL,
@@ -31,5 +31,14 @@ CREATE TABLE IF NOT EXISTS `palestra` (
      `palestrante` varchar(100) NOT NULL,
      `descricao` text NOT NULL,
      `horario` varchar(50) NOT NULL,
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+DROP TABLE IF EXISTS `usuarios`;
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+     `id` int NOT NULL AUTO_INCREMENT,
+     `nome` varchar(100) NOT NULL,
+     `endereco` varchar(255) DEFAULT NULL,
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

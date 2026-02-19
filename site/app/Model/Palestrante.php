@@ -8,6 +8,7 @@ class Palestrante extends AbstractModel
 {
     protected static string $table = 'palestrantes';
 
+    public int $id;
     public string $nome;
     public string $email;
     public string $especialidade;

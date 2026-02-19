@@ -29,6 +29,11 @@ $routes['patrocinadores'] = [
     'editar' => [PatrocinadorController::class, 'edit'],
     'listar' => [PatrocinadorController::class, 'list'],
 ];
+$routes['examples'] = [
+    'iterator' => function() {
+        require __DIR__ . '/views/examples/iterator-examples.php';
+    },
+];
 
 $url = $_SERVER['REQUEST_URI'];
 
@@ -45,8 +50,16 @@ if (false === isset($routes[$entidade][$acao])) {
     exit;
 }
 
-$controller = $routes[$entidade][$acao][0];
-$method = $routes[$entidade][$acao][1];
+$route = $routes[$entidade][$acao];
+
+// Se a rota for uma função anônima, executa diretamente
+if (is_callable($route)) {
+    $route();
+    exit;
+}
+
+$controller = $route[0];
+$method = $route[1];
 
 // (new UsuarioController)->add()
 (new $controller)->$method();

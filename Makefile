@@ -19,5 +19,8 @@ migrate_up:
 migrate_down:
 	docker compose exec -T php bash -c "php commands/migrate-down.php"
 
+seed:
+	docker compose exec -T php bash -c "php commands/seed-database.php"
+
 down:
 	docker compose down
