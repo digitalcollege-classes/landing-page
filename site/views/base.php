@@ -13,9 +13,44 @@
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body class="amber lighten-4">
+    <?php
+
+    require_once __DIR__ . '/../vendor/autoload.php';
+
+    use App\UI\Factory\StandardThemeFactory;
+    use App\UI\Factory\PremiumThemeFactory;
+
+    // --- Lógica para alternar o tema ---
+    $availableThemes = ['standard', 'premium'];
+
+    // Verifica se há uma solicitação para mudar o tema
+    if (isset($_GET['theme']) && in_array($_GET['theme'], $availableThemes)) {
+        $currentTheme = $_GET['theme'];
+    } else {
+        $currentTheme = 'standard';
+    }
+
+    // --- Criação da fábrica baseada no tema atual ---
+    $factoryForDemo = null;
+    if ($currentTheme === 'standard') {
+        $factoryForDemo = new StandardThemeFactory();
+    } else {
+        $factoryForDemo = new PremiumThemeFactory();
+    }
+
+    // Usa a fábrica para criar os componentes da UI para demonstração
+    $navbarForDemo = $factoryForDemo->createNavbar();
+
+    // Determina qual será o próximo tema para o botão
+    $nextTheme = ($currentTheme === 'standard') ? 'premium' : 'standard';
+
+    ?>
 
     <!-- Top Navigation -->
-    <?php require_once '../views/nav.php'; ?>
+    <?= $navbarForDemo->render() ?>
+    <div style="text-align: center; padding-top: 70px;">
+        <a href="?theme=<?= $nextTheme ?>" style="display: inline-block;" class="btn btn-primary">Trocar Tema para <?= ucfirst($nextTheme) ?></a>
+    </div>
 
     <!-- Section Banner -->
     <?php require_once '../views/banner.php'; ?>
