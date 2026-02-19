@@ -1,4 +1,4 @@
-up:
+sudoup:
 	docker compose up -d
 
 up_build:

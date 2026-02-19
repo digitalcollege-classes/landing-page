@@ -6,7 +6,7 @@ namespace App\Model;
 
 class Usuario extends AbstractModel
 {
-    protected static string $table = 'usuarios';
+    protected static string $table = 'usuario';
 
     public int $id;
     public string $nome;
@@ -23,6 +23,17 @@ class Usuario extends AbstractModel
             ':email' => $this->email,
             ':senha' => $this->senha,
         ]);
+    }
+
+    public function find(string $email)
+    {
+        $sql = parent::db()->prepare("SELECT * FROM usuario WHERE email = :email");
+
+        $sql->execute([
+            ":email" => $email
+        ]);
+
+        return $sql->fetch(\PDO::FETCH_ASSOC);
     }
 }
 

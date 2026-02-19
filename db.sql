@@ -33,3 +33,15 @@ CREATE TABLE IF NOT EXISTS `palestra` (
      `horario` varchar(50) NOT NULL,
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+     `id` int NOT NULL AUTO_INCREMENT,
+     `nome` varchar(100) NOT NULL,
+     `email` varchar(255) NOT NULL,
+     `password` varchar(255) NOT NULL,
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `usuario`(nome, email, password)
+    VALUES
+        ('Fabio Sousa','fabin@gmail.com', '4321');
