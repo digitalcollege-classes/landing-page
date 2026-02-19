@@ -16,7 +16,6 @@ class PalestraController extends AbstractController implements Subject
 
     public function __construct()
     {
-        // For demonstration, attach the observer automatically
         $this->attach(new EmailPalestranteObserver());
     }
 
@@ -24,7 +23,7 @@ class PalestraController extends AbstractController implements Subject
     {
         $palestras = Palestra::all();
 
-        $this->view('palestra/list', [
+        $this->view('palestras/list', [
             'palestras' => $palestras,
         ]);
     }
@@ -32,7 +31,10 @@ class PalestraController extends AbstractController implements Subject
     public function add(): void
     {
         if (empty($_POST)) {
-            // Render view or return
+            $palestrantes = \App\Model\Palestrante::all();
+            $this->view('palestras/add', [
+                'palestrantes' => $palestrantes
+            ]);
             return;
         }
 

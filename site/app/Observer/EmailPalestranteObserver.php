@@ -17,20 +17,14 @@ class EmailPalestranteObserver implements Observer
 			return;
 		}
 
-		/** @var Palestra $palestra */
 		$palestra = $data;
 
-		// Fetch Palestrante details
 		$palestrante = Palestrante::find((int) $palestra->palestrante_id);
 
 		if (!$palestrante) {
-			// Log error or return if palestrante not found
-			// For now, let's just return to avoid crashing
 			return;
 		}
 
-		// Format date and time
-		// stored as datetime, e.g., '2026-02-18 22:30:00'
 		$horario = new \DateTime($palestra->horario);
 		$formattedDate = $horario->format('H:i d/m/Y');
 
@@ -43,8 +37,12 @@ class EmailPalestranteObserver implements Observer
 			$formattedDate
 		);
 
-		// Log the email content
+		$logDir = __DIR__ . '/../../logs';
+		if (!is_dir($logDir)) {
+			mkdir($logDir, 0777, true);
+		}
+
 		$logEntry = sprintf("[%s] %s%s", date('Y-m-d H:i:s'), $message, PHP_EOL);
-		file_put_contents(__DIR__ . '/../../logs/emails.log', $logEntry, FILE_APPEND);
+		file_put_contents($logDir . '/emails.log', $logEntry, FILE_APPEND);
 	}
 }
