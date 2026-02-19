@@ -17,11 +17,12 @@ $routes['usuarios'] = [
 $routes['palestrantes'] = [
     'cadastrar' => [PalestranteController::class, 'add'],
     'editar' => [PalestranteController::class, 'edit'],
-    'excluir' => [PalestranteController::class, 'add'],
+    'excluir' => [PalestranteController::class, 'delete'],
     'listar' => [PalestranteController::class, 'list'],
     'api' => [PalestranteController::class, 'getAll'],
 ];
 $routes['palestras'] = [
+    'cadastrar' => [PalestraController::class, 'add'],
     'listar' => [PalestraController::class, 'list'],
 ];
 $routes['patrocinadores'] = [
