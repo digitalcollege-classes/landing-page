@@ -32,6 +32,7 @@ class UsuarioController extends AbstractController
 
     public function list(): void
     {
+        
         $usuarios = Usuario::all();
 
         $this->view('usuarios/list', [

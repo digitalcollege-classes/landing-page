@@ -15,7 +15,7 @@ abstract class AbstractModel
     {
         $result = static::db()->query("SELECT * FROM " . static::$table);
 
-        return $result->fetchAll(\PDO::FETCH_CLASS, static::class);
+        return $result->fetchAll(\PDO::FETCH_CLASS);
     }
     
     public static function db(): \PDO

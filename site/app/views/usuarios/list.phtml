@@ -11,7 +11,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Endereço</th>
-                <th scope="col">Email</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
@@ -22,7 +21,6 @@
                     <tr>
                         <td>'.$usuario->id.'</td>
                         <td>'.$usuario->nome.'</td>
-                        <td>'.$usuario->endereco.'</td>
                         <td>'.($usuario->email ?? '').'</td>
                         <td>
                             <a href="/admin/usuarios/editar?id=1" class="btn btn-sm btn-warning">Editar</a>

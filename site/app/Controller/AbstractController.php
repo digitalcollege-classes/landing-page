@@ -10,8 +10,11 @@ abstract class AbstractController
     {
         //desestruturando os params
         extract($params);
-
-        include '../app/views/menu.phtml';
+        if($name != 'auth/login') {
+            include '../app/views/menu.phtml';
+        }
+        include "../app/views/header.phtml";
         include "../app/views/{$name}.phtml";
+        include "../app/views/footer.phtml";
     }
 }
