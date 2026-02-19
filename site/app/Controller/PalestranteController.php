@@ -5,12 +5,26 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\Palestrante;
+use App\Builder\PalestranteBuilder;
 
 class PalestranteController extends AbstractController
 {
     public function add(): void
     {
-        $this->view('palestrantes/add');
+        if (empty($_POST)) {
+            $this->view('palestrantes/add');
+            return;
+        }
+
+        $palestrante = (new PalestranteBuilder())
+            ->setNome($_POST['nome'])
+            ->setEmail($_POST['email'])
+            ->setEspecialidade($_POST['especialidade'])
+            ->setFoto($_POST['foto'] ?? '')
+            ->setBiografia($_POST['biografia'] ?? '')
+            ->build();
+
+        echo "Palestrante criado com sucesso!";
     }
 
     public function edit(): void
