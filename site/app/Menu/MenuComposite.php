@@ -1,5 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Menu;
+
+
 class MenuComposite implements MenuComponent {
     private string $label;
     private array $children = [];

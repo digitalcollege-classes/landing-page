@@ -1,6 +1,8 @@
 <?php
 
-class MenuLeaf implements MenuComponent {
+namespace App\Menu;
+
+class MenuLeaf implements MenuComponent{
     private string $label;
     private string $url;
     private ?string $icon = null;
