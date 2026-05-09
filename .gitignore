@@ -1,3 +1,4 @@
 .idea
 site/vendor/
 site/.env
+node_modules/
