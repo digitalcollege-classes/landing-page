@@ -5,6 +5,7 @@
     }
   },
   "require": {
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "symfony/dotenv": "^8.0"
   }
 }
